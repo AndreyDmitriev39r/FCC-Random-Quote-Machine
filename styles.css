@@ -1,0 +1,27 @@
+/* general styling */
+
+:root {
+  --bodybg-temp: #fff;
+  --containerbg-temp: #aaa;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* 1 priority: bg image */
+body {
+  height: 100vw;
+  background-color: var(--bodybg-temp);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 70%;
+  background-color: var(--containerbg-temp);
+}
+
