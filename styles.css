@@ -1,8 +1,7 @@
 /* general styling */
 
-:root {
-  --bodybg-temp: #fff;
-  --containerbg-temp: #aaa;
+:root {  
+  --mainheading: #eda;
 }
 
 *, *::before, *::after {
@@ -13,7 +12,9 @@
 /* 1 priority: bg image */
 body {
   height: 100vh;
-  background-color: var(--bodybg-temp);
+  background: url(./images/background-image-1.jpg) no-repeat center center/cover;
+  /* optional: play around rgba for darker efffects */
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,6 +23,13 @@ body {
 
 .container {
   width: 70%;
-  background-color: var(--containerbg-temp);
+  background-color: transparent;
+}
+
+h1 {
+  text-align: center;
+  margin: 0.5rem auto 0.4rem auto;
+  font-size: 1.6rem;
+  color: var(--mainheading);
 }
 
