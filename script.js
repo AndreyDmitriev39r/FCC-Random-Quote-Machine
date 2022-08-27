@@ -51,4 +51,29 @@ const quotes = [
   }
 ];
 
-//first thing to render: random quote as soon as page loads
+//constants
+
+const quoteBox = document.getElementById('quote-box');
+
+//functions
+
+const getRandom = () => {
+  return quotes[Math.floor(Math.random() * quotes.length)]
+}
+
+//initial rendering
+const initialQuote = getRandom();
+quoteBox.style.backgroundColor = initialQuote.bgcolor;
+const paragColor = initialQuote.textcolor;
+//component
+
+const Element = (
+  <>
+  <p style={{color: `${paragColor}`}}>{initialQuote.quote}</p>
+  <p style={{color: `${paragColor}`}}>{initialQuote.author}</p>
+  <button>new quote</button>
+  <button>tweet stuff</button>
+  </>
+)
+
+ReactDOM.render(Element, quoteBox);
