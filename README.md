@@ -1,4 +1,4 @@
-# Random Qoute Machine
+# Random Quote Machine
 
 ## Description
 
@@ -6,7 +6,15 @@ This is the first certification project for Front End Development libraries sect
 
 ## Technologies used
 
-Final decision not made yet
+- HTML
+
+- CSS
+
+- JavaScript
+
+- React
+
+- Bootstrap
 
 ## Links
 

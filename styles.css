@@ -12,7 +12,7 @@
 }
 /* 1 priority: bg image */
 body {
-  height: 100vw;
+  height: 100vh;
   background-color: var(--bodybg-temp);
   display: flex;
   flex-direction: column;
