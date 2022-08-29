@@ -103,8 +103,20 @@ const App = () => {
         color: state.textcolor,
         children: state.author
       })}
-      <button>new quote</button>
-      <button>tweet stuff</button>
+      <button
+        id='new-quote' 
+        onClick={
+          () => setState(getRandomQuote())
+          }
+        >
+        new quote
+      </button>
+      <a
+        id='tweet-quote'
+        href="#"
+      >
+        tweet stuff
+      </a>
     </div>
   );
 }
