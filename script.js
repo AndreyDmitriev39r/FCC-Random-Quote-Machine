@@ -57,23 +57,56 @@ const quoteBox = document.getElementById('quote-box');
 
 //functions
 
-const getRandom = () => {
-  return quotes[Math.floor(Math.random() * quotes.length)]
+const getRandomQuote = () => {
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-//initial rendering
-const initialQuote = getRandom();
-quoteBox.style.backgroundColor = initialQuote.bgcolor;
-const paragColor = initialQuote.textcolor;
-//component
+const renderApp = () => {
+  ReactDOM.render(<App />, quoteBox);
+}
 
-const Element = (
-  <>
-  <p style={{color: `${paragColor}`}}>{initialQuote.quote}</p>
-  <p style={{color: `${paragColor}`}}>{initialQuote.author}</p>
-  <button>new quote</button>
-  <button>tweet stuff</button>
-  </>
-)
+const setState = (newState) => {
+  Object.assign(state, newState);
+  renderApp();
+}
 
-ReactDOM.render(Element, quoteBox);
+const state = getRandomQuote();
+
+// reusable components
+
+const Paragraph = ({id, color, children}) => {
+  return (
+    <p
+      id={id} 
+      style={{
+        color: `${color}`
+      }}>
+      {children}
+    </p>
+  );
+}
+
+//App
+
+const App = () => {
+  return (
+    <div style={
+      {backgroundColor : `${state.bgcolor}`}
+      }>
+      {Paragraph({
+        id: 'text',
+        color: state.textcolor,
+        children: state.quote
+      })}
+      {Paragraph({
+        id: 'author',
+        color: state.textcolor,
+        children: state.author
+      })}
+      <button>new quote</button>
+      <button>tweet stuff</button>
+    </div>
+  );
+}
+
+renderApp();
