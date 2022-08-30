@@ -109,7 +109,7 @@ const App = () => {
         color: state.textcolor,
         children: state.author
       })}
-      <div class="container">
+      <div className="container">
         <button
           id='new-quote'
           className='btn btn-default'
