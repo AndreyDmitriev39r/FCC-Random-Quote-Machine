@@ -92,9 +92,13 @@ const Paragraph = ({id, alignText, color, children}) => {
 
 const App = () => {
   return (
-    <div 
+    <div
+      className='colored-container'
       style={
-        {backgroundColor : `${state.bgcolor}`}
+        {
+          backgroundColor : `${state.bgcolor}`,
+          border: `3px solid ${state.textcolor}`, 
+        }
       }      
     >
       {Paragraph({
@@ -109,7 +113,7 @@ const App = () => {
         color: state.textcolor,
         children: state.author
       })}
-      <div className="container">
+      <div className="btn-container">
         <button
           id='new-quote'
           className='btn btn-default'
@@ -121,6 +125,7 @@ const App = () => {
         </button>
         <a
           id='tweet-quote'
+          clasName='well'
           href="twitter.com/intent/tweet"
           target="_blank"
         >
