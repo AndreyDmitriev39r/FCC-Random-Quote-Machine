@@ -121,7 +121,8 @@ const App = () => {
         </button>
         <a
           id='tweet-quote'
-          href="#"
+          href="twitter.com/intent/tweet"
+          target="_blank"
         >
           tweet stuff
         </a>
