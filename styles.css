@@ -2,6 +2,8 @@
 
 :root {  
   --mainheading: #eda;
+  --newqoutelight: #fff;
+  --newquotedark: #000;  
 }
 
 *, *::before, *::after {
@@ -66,4 +68,25 @@ p, .btn-container {
   font-size: 1.53rem;
   letter-spacing: 0.08rem;
   font-style: italic;  
+}
+
+#new-quote {
+  color: var(--newquotedark);
+  background-color: var(--newqoutelight);  
+}
+
+/* animations */
+
+p, .colored-container, #new-quote {
+  transition: .5s;
+}
+
+#new-quote:hover {
+  color: var(--newqoutelight);
+  background-color: var(--newquotedark);
+}
+
+/* somehow it's just fine, but refactor it */
+#new-quote:active {
+  font-size: 30px;  
 }

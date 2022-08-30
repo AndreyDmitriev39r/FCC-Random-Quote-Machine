@@ -125,7 +125,7 @@ const App = () => {
         </button>
         <a
           id='tweet-quote'
-          clasName='well'
+          className='well'
           href="twitter.com/intent/tweet"
           target="_blank"
         >
