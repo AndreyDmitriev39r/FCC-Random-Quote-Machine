@@ -21,14 +21,22 @@ body {
   align-items: center;
 }
 
-.container {
+.main-container {
   width: 70%;
   background-color: transparent;
 }
 
-h1 {
-  text-align: center;
+/* first idea was to use bootstrap grid,
+ but for simple layout like this that would overkill 
+*/
+
+h1 {  
   margin: 0.5rem auto 0.4rem auto;
   font-size: 1.6rem;
   color: var(--mainheading);
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
 }

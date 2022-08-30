@@ -74,13 +74,15 @@ const state = getRandomQuote();
 
 // reusable components
 
-const Paragraph = ({id, color, children}) => {
+const Paragraph = ({id, alignText, color, children}) => {
   return (
     <p
-      id={id} 
+      id={id}
+      className={`text-${alignText}`}
       style={{
         color: `${color}`
-      }}>
+      }}
+    >
       {children}
     </p>
   );
@@ -90,33 +92,40 @@ const Paragraph = ({id, color, children}) => {
 
 const App = () => {
   return (
-    <div style={
-      {backgroundColor : `${state.bgcolor}`}
-      }>
+    <div 
+      style={
+        {backgroundColor : `${state.bgcolor}`}
+      }      
+    >
       {Paragraph({
         id: 'text',
+        alignText: 'left',
         color: state.textcolor,
         children: state.quote
       })}
       {Paragraph({
         id: 'author',
+        alignText: 'center',
         color: state.textcolor,
         children: state.author
       })}
-      <button
-        id='new-quote' 
-        onClick={
-          () => setState(getRandomQuote())
-          }
+      <div class="container">
+        <button
+          id='new-quote'
+          className='btn btn-default'
+          onClick={
+            () => setState(getRandomQuote())
+            }
+          >
+          new quote
+        </button>
+        <a
+          id='tweet-quote'
+          href="#"
         >
-        new quote
-      </button>
-      <a
-        id='tweet-quote'
-        href="#"
-      >
-        tweet stuff
-      </a>
+          tweet stuff
+        </a>
+      </div>
     </div>
   );
 }
