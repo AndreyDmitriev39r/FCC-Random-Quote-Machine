@@ -57,8 +57,23 @@ const quoteBox = document.getElementById('quote-box');
 
 //functions
 
-const getRandomQuote = () => {
-  return quotes[Math.floor(Math.random() * quotes.length)];
+const pickRandomEl = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+const getRandomQuote = (oldQuote) => {
+  if (oldQuote === '') {
+    return pickRandomEl(quotes);
+  }
+  let remainingQuotes, indexToRemove;
+  for (let dataObj of quotes) {
+    if (dataObj.quote === oldQuote.quote) {
+      indexToRemove = quotes.indexOf(dataObj);
+      remainingQuotes = quotes.filter((el, index) => index !== indexToRemove);
+      break;
+    }
+  }
+  return pickRandomEl(remainingQuotes);
 }
 
 // reusable components
@@ -80,9 +95,9 @@ const Paragraph = ({id, alignText, color, children}) => {
 //App
 
 const App = () => {
-  const [currentQuote, setCurrentQuote] = React.useState(() => getRandomQuote());
+  const [currentQuote, setCurrentQuote] = React.useState(() => getRandomQuote(''));
   const handleNewQuoteClick = () => {
-    setCurrentQuote(getRandomQuote());
+    setCurrentQuote(getRandomQuote(currentQuote));
   }
   return (
     <div
