@@ -61,17 +61,6 @@ const getRandomQuote = () => {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-const renderApp = () => {
-  ReactDOM.render(<App />, quoteBox);
-}
-
-const setState = (newState) => {
-  Object.assign(state, newState);
-  renderApp();
-}
-
-const state = getRandomQuote();
-
 // reusable components
 
 const Paragraph = ({id, alignText, color, children}) => {
@@ -91,35 +80,37 @@ const Paragraph = ({id, alignText, color, children}) => {
 //App
 
 const App = () => {
+  const [currentQuote, setCurrentQuote] = React.useState(() => getRandomQuote());
+  const handleNewQuoteClick = () => {
+    setCurrentQuote(getRandomQuote());
+  }
   return (
     <div
       className='colored-container'
       style={
         {
-          backgroundColor : `${state.bgcolor}`,
-          border: `3px solid ${state.textcolor}`, 
+          backgroundColor : `${currentQuote.bgcolor}`,
+          border: `3px solid ${currentQuote.textcolor}`, 
         }
       }      
     >
       {Paragraph({
         id: 'text',
         alignText: 'left',
-        color: state.textcolor,
-        children: state.quote
+        color: currentQuote.textcolor,
+        children: currentQuote.quote
       })}
       {Paragraph({
         id: 'author',
         alignText: 'center',
-        color: state.textcolor,
-        children: state.author
+        color: currentQuote.textcolor,
+        children: currentQuote.author
       })}
       <div className="btn-container">
         <button
           id='new-quote'
           className='btn btn-default'
-          onClick={
-            () => setState(getRandomQuote())
-            }
+          onClick={handleNewQuoteClick}
           >
           new quote
         </button>
@@ -136,4 +127,4 @@ const App = () => {
   );
 }
 
-renderApp();
+ReactDOM.render(<App />, quoteBox);
